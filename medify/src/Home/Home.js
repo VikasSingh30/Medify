@@ -1,6 +1,6 @@
 import { Container, Box, Stack } from "@mui/material";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
-import SearchHospital from "../components/SearchHospital/SearchHospital";
+import SearchHospital from '../components/SearchHospitals/SearchHospitals';
 import FAQs from "../components/Sections/FAQs/FAQs";
 import OurFamilies from "../components/Sections/OurFamilies/OurFamilies";
 import Blogs from "../components/Sections/Blogs/Blogs";

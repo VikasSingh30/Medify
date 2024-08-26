@@ -5,16 +5,16 @@ import { useSearchParams } from "react-router-dom";
 import HospitalCard from "../components/HospitalCard/HospitalCard";
 import icon from "../assets/tick.png";
 import cta from "../assets/cta.png";
-import SearchHospital from "../components/SearchHospital/SearchHospital";
+import SearchHospital from '../components/SearchHospitals/SearchHospitals';
 import BookingModal from "../components/BookingModal/BookingModal";
 import AutohideSnackbar from "../components/AutohideSnackbar/AutohideSnackbar";
 import NavBar from "../components/NavBar/NavBar";
 
 export default function Search() {
-  const [seachParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [hospitals, setHospitals] = useState([]);
-  const [state, setState] = useState(seachParams.get("state"));
-  const [city, setCity] = useState(seachParams.get("city"));
+  const [state, setState] = useState(searchParams.get("state"));
+  const [city, setCity] = useState(searchParams.get("city"));
   const availableSlots = {
     morning: ["11:30 AM"],
     afternoon: ["12:00 PM", "12:30 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
@@ -47,9 +47,19 @@ export default function Search() {
   }, [state, city]);
 
   useEffect(() => {
-    setState(seachParams.get("state"));
-    setCity(seachParams.get("city"));
-  }, [seachParams]);
+    setState(searchParams.get("state"));
+    setCity(searchParams.get("city"));
+  }, [searchParams]);
+
+  // const handleStateChange = (newState) => {
+  //   setState(newState);
+  //   setSearchParams({ state: newState, city }); // Update query params in URL
+  // };
+
+  // const handleCityChange = (newCity) => {
+  //   setCity(newCity);
+  //   setSearchParams({ state, city: newCity }); // Update query params in URL
+  // };
 
   const handleBookingModal = (details) => {
     setBookingDetails(details);
